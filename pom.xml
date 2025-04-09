@@ -23,7 +23,7 @@
     		<sonar.language>java</sonar.language>
 		<sonar.host.url>http://18.60.89.45:9000/</sonar.host.url>
 		<sonar.login>admin</sonar.login>
-		<sonar.password>admin</sonar.password> 
+		<sonar.password>admin1</sonar.password> 
 		
 	</properties>
 
