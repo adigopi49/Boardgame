@@ -84,14 +84,14 @@
 	
 	    <repository>
 	      <id>nexus</id>
-	      <name>Mithun Technologies snap Nexus Repository</name>
-	      <url>http://18.60.85.166:8081/repository/maven-snap/</url>
+	      <name>Mithun Technologies relese Nexus Repository</name>
+	      <url>http://18.60.85.166:8081/repository/maven-relese/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>Mithun Technologies relese Nexus Repository </name>
-	      <url>http://18.60.85.166:8081/repository/maven-relese/</url>
+	      <name>Mithun Technologies snap Nexus Repository </name>
+	      <url>http://18.60.85.166:8081/repository/maven-snap/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
