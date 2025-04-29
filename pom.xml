@@ -123,11 +123,11 @@
 	 <distributionManagement>
         <repository>
             <id>nexus</id>
-            <url>http://18.60.85.166:8081/repository/maven-relese/</url>
+            <url>http://18.60.186.32:8081/repository/maven-release1/</url>
         </repository>
         <snapshotRepository>
             <id>nexus</id>
-            <url>http://18.60.85.166:8081/repository/maven-snap/</url>
+            <url>http://18.60.186.32:8081/repository/maven-snap1/</url>
         </snapshotRepository>
     </distributionManagement>
 
