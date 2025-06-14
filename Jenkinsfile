@@ -23,9 +23,9 @@ pipeline {
                sh 'mvn package'
             }
         }
-        stage('Hello') {
+        stage('deploy') {
             steps {
-                echo 'main_branch'
+                echo 'deply'
             }
         }
     }
