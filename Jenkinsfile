@@ -23,7 +23,7 @@ pipeline {
                sh 'mvn package'
             }
         }
-        stage('deploy') {
+        stage('deploy-k8s') {
             steps {
                 echo 'deply'
             }
