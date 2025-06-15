@@ -17,7 +17,7 @@ pipeline {
   stages {
     stage('Compile') {
       when {
-        expression { params.RUN_STAGE == 'compile' }
+        changeset "gopi.txt"
       }
       steps {
         sh 'mvn compile'
