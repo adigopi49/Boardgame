@@ -35,7 +35,7 @@ pipeline {
       steps {
         script{
           withDockerRegistry(credentialsId: 'docker-cred') {
-            sh "docker build -t gopiadi/bank:v1"
+            sh "docker build -t gopiadi/bank:v1 ."
           }
         }
       }
