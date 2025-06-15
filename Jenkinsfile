@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Git Checkout') {
       steps {
-        git branch: 'main', url: 'https://github.com/adigopi49/practice.git'
+        git branch: 'main', url: 'https://github.com/adigopi49/Boardgame.git'
       }
     }
 
