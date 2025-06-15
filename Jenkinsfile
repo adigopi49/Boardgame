@@ -6,14 +6,6 @@ pipeline {
     maven 'maven3'
   }
 
-  parameters {
-    choice(
-      name: 'RUN_STAGE',
-      choices: ['compile', 'test', 'package'],
-      description: 'Select which stage to execute'
-    )
-  }
-
   stages {
     stage('Compile') {
       when {
@@ -26,7 +18,7 @@ pipeline {
 
     stage('Test') {
       when {
-        expression { params.RUN_STAGE == 'test' }
+        changeset "gopi.txt"
       }
       steps {
         sh 'mvn test'
@@ -35,7 +27,7 @@ pipeline {
 
     stage('Package') {
       when {
-        expression { params.RUN_STAGE == 'package' }
+        changeset "gopi.txt"
       }
       steps {
         sh 'mvn package'
