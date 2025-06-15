@@ -1,32 +1,34 @@
 pipeline {
-    agent any
-    
-    tools {
-        maven 'maven3'
-        jdk 'java17'
+  agent { label 'w1' }
+
+  tools {
+    jdk 'java17'
+    maven 'maven3'
+  }
+
+  stages {
+    stage('Git Checkout') {
+      steps {
+        git branch: 'main', url: 'https://github.com/adigopi49/practice.git'
+      }
     }
 
-    stages {
-        
-        stage('Compile ') {
-            steps {
-             sh 'mvn compile'
-            }
-        }
-        stage('test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('Package') {
-            steps {
-               sh 'mvn package'
-            }
-        }
-        stage('deploy-k8s') {
-            steps {
-                echo 'deply'
-            }
-        }
+    stage('Compile') {
+      steps {
+        sh 'mvn compile'
+      }
     }
+
+    stage('test') {
+      steps {
+        sh 'mvn test'
+      }
+    }
+
+    stage('build') {
+      steps {
+        sh 'mvn package'
+      }
+    }
+  }
 }
