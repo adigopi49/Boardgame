@@ -30,5 +30,15 @@ pipeline {
         sh 'mvn package'
       }
     }
+
+    stage('build-docker') {
+      steps {
+        script{
+          withDockerRegistry(credentialsId: 'docker-cred') {
+            sh "docker build -t gopiadi/bank:v1"
+          }
+        }
+      }
+    }
   }
 }
