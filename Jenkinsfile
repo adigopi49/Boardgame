@@ -1,39 +1,42 @@
 pipeline {
   agent { label 'w1' }
 
-  parameters {
-    choice(name: 'RUN_STAGE', choices: ['all', 'compile'], description: 'Which stage to run')
-  }
-
   tools {
     jdk 'java17'
     maven 'maven3'
   }
 
-  stages {
-    stage('Git Checkout') {
-      when { expression { params.RUN_STAGE == 'all' } }
-      steps {
-        git branch: 'main', url: 'https://github.com/adigopi49/Boardgame.git'
-      }
-    }
+  parameters {
+    choice(
+      name: 'RUN_STAGE',
+      choices: ['compile', 'test', 'package'],
+      description: 'Select which stage to execute'
+    )
+  }
 
+  stages {
     stage('Compile') {
-      when { expression { params.RUN_STAGE == 'compile' || params.RUN_STAGE == 'all' } }
+      when {
+        expression { params.RUN_STAGE == 'compile' }
+      }
       steps {
         sh 'mvn compile'
       }
     }
 
     stage('Test') {
-      when { expression { params.RUN_STAGE == 'all' } }
+      when {
+        expression { params.RUN_STAGE == 'test' }
+      }
       steps {
         sh 'mvn test'
       }
     }
 
     stage('Package') {
-      when { expression { params.RUN_STAGE == 'all' } }
+      when {
+        expression { params.RUN_STAGE == 'package' }
+      }
       steps {
         sh 'mvn package'
       }
