@@ -30,17 +30,6 @@ pipeline {
         sh 'mvn package'
       }
     }
+  } // 👈 this closes "stages"
 
-    stage('Build Docker Image') {
-      steps {
-        script {
-          withDockerRegistry(credentialsId: 'docker-cred', url: 'https://index.docker.io/v1/') {
-            sh 'docker build -t gopiadi/banl:v1 .'
-            // Optional: push the image
-            // sh 'docker push gopiadi/banl:v1'
-          }
-        }
-      }
-    }
-  }
-}
+} // 👈 this closes "pipeline"
